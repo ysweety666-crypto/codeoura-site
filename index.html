@@ -6,8 +6,12 @@
 <link rel="canonical" href="/codeoura-site/en/">
 <meta http-equiv="refresh" content="0; url=/codeoura-site/en/">
 <script>
-  var lang = (navigator.language || 'en').toLowerCase().startsWith('ar') ? 'ar' : 'en';
-  location.replace('/codeoura-site/' + lang + '/');
+  // English is the canonical landing: the meta refresh above sends everyone
+  // there, and this only redirects the visitor whose browser actually asks
+  // for one of the other two.
+  var lang = (navigator.language || 'en').toLowerCase();
+  var match = lang.indexOf('ar') === 0 ? 'ar' : lang.indexOf('tr') === 0 ? 'tr' : 'en';
+  location.replace('/codeoura-site/' + match + '/');
 </script>
 </head>
 <body>
